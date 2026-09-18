@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>厂家直销 · 全球配送</title>
+<meta name="description" content="Premium watches, jewelry and fashion. Factory direct, worldwide shipping.">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Roboto, sans-serif;
+    background: #0a0a0f;
+    color: #fff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 24px;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(201,168,106,0.15) 0%, transparent 60%),
+      linear-gradient(180deg, #0a0a0f 0%, #13131f 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url("https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=luxury%20watches%20jewelry%20and%20handbags%20displayed%20on%20dark%20marble%20surface%20with%20golden%20ambient%20light%20premium%20elegant%20cinematic&image_size=landscape_16_9") center/cover;
+    opacity: 0.35;
+    filter: blur(1px);
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(10,10,15,0.4) 0%, rgba(10,10,15,0.85) 100%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 720px; }
+  .brand {
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: #c9a86a;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+  .headline {
+    font-size: clamp(28px, 6vw, 52px);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    background: linear-gradient(135deg, #f0d78c 0%, #c9a86a 50%, #f0d78c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .subline {
+    font-size: clamp(15px, 2.5vw, 19px);
+    color: #b8b8c8;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+  }
+  .hero-cta {
+    display: inline-block;
+    padding: 18px 52px;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(37,211,102,0.55); }
+
+  /* ===== TRUST BADGES ===== */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 44px;
+  }
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(201,168,106,0.3);
+    border-radius: 30px;
+    font-size: 13px;
+    color: #d4c9a8;
+    letter-spacing: 1px;
+  }
+  .badge-dot {
+    width: 7px; height: 7px;
+    background: #c9a86a;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #c9a86a;
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section { padding: 80px 24px; max-width: 1100px; margin: 0 auto; }
+  .section-title {
+    text-align: center;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 600;
+    color: #f0d78c;
+    margin-bottom: 14px;
+  }
+  .section-sub {
+    text-align: center;
+    color: #888;
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+  }
+
+  /* ===== PRODUCT GRID ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .card {
+    background: #13131f;
+    border: 1px solid rgba(201,168,106,0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,168,106,0.5);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+  .card-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+  }
+  .card-body { padding: 20px; }
+  .card-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #f0d78c;
+    margin-bottom: 6px;
+  }
+  .card-desc {
+    font-size: 13px;
+    color: #999;
+    line-height: 1.6;
+  }
+
+  /* ===== FEATURES ===== */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+  }
+  .feature {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(180deg, #13131f 0%, #0d0d16 100%);
+    border: 1px solid rgba(201,168,106,0.12);
+    border-radius: 16px;
+  }
+  .feature-icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+  }
+  .feature-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #f0d78c;
+    margin-bottom: 8px;
+  }
+  .feature-desc {
+    font-size: 13px;
+    color: #888;
+  }
+
+  /* ===== FINAL CTA ===== */
+  .final-cta {
+    text-align: center;
+    padding: 80px 24px;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(37,211,102,0.08) 0%, transparent 60%),
+      linear-gradient(180deg, #0d0d16 0%, #0a0a0f 100%);
+  }
+  .final-cta h2 {
+    font-size: clamp(24px, 5vw, 38px);
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 14px;
+  }
+  .final-cta p {
+    color: #999;
+    font-size: 15px;
+    margin-bottom: 32px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 1px;
+  }
+
+  @media (max-width: 600px) {
+    .hero { padding: 40px 18px; }
+    .section { padding: 50px 18px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="brand">Manufacturer Direct</div>
+      <h1 class="headline">厂家直销 · 全球配送<br>卓越的品质与服务</h1>
+      <p class="subline">WATCHES &nbsp;•&nbsp; JEWELRY &nbsp;•&nbsp; FASHION</p>
+      <a class="hero-cta" href="https://wa.me/8613246206989?text=Hi%2C%20I%27m%20interested%20in%20your%20collection">
+        💬 Chat on WhatsApp
+      </a>
+      <div class="badges">
+        <div class="badge"><span class="badge-dot"></span>Factory Direct</div>
+        <div class="badge"><span class="badge-dot"></span>Worldwide Shipping</div>
+        <div class="badge"><span class="badge-dot"></span>Premium Quality</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section">
+    <h2 class="section-title">精选系列</h2>
+    <p class="section-sub">OUR COLLECTIONS</p>
+    <div class="grid">
+      <div class="card">
+        <img class="card-img" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=premium%20luxury%20watch%20collection%20gold%20and%20steel%20elegant%20dark%20background%20product%20photography%20high%20end&image_size=landscape_4_3" alt="Watches">
+        <div class="card-body">
+          <div class="card-title">腕表系列</div>
+          <div class="card-desc">精工打磨，经典与现代融合，每一枚都彰显品味与气质。</div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=premium%20jewelry%20gold%20necklace%20diamonds%20rings%20elegant%20dark%20background%20luxury%20product%20photography&image_size=landscape_4_3" alt="Jewelry">
+        <div class="card-body">
+          <div class="card-title">珠宝系列</div>
+          <div class="card-desc">闪耀钻饰与贵金属，匠心工艺，点亮每一个重要时刻。</div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img" src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=luxury%20handbags%20premium%20leather%20designer%20bags%20elegant%20dark%20background%20product%20photography%20high%20end&image_size=landscape_4_3" alt="Fashion">
+        <div class="card-body">
+          <div class="card-title">服饰箱包</div>
+          <div class="card-desc">上乘皮质与潮流设计，从细节处体现品质与格调。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section">
+    <h2 class="section-title">为什么选择我们</h2>
+    <p class="section-sub">WHY CHOOSE US</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">🏭</div>
+        <div class="feature-title">厂家直销</div>
+        <div class="feature-desc">源头工厂直供，省去中间环节，性价比更高。</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌍</div>
+        <div class="feature-title">全球配送</div>
+        <div class="feature-desc">覆盖全球主要国家，安全快速送达。</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <div class="feature-title">卓越品质</div>
+        <div class="feature-desc">严格品控，每一件产品都经过多道检验。</div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💬</div>
+        <div class="feature-title">贴心服务</div>
+        <div class="feature-desc">专属客服一对一，售后无忧。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>联系我们，获取最新报价</h2>
+    <p>扫描或点击下方按钮，即可在 WhatsApp 上与我们沟通。</p>
+    <a class="hero-cta" href="https://wa.me/8613246206989?text=Hi%2C%20I%27m%20interested%20in%20your%20collection">
+      💬 Chat on WhatsApp
+    </a>
+  </section>
+
+  <footer>© Factory Direct · Worldwide Shipping</footer>
+
+</body>
+</html>
