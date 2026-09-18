@@ -26,9 +26,7 @@
     justify-content: center;
     text-align: center;
     padding: 60px 24px;
-    background:
-      radial-gradient(ellipse at 50% 0%, rgba(201,168,106,0.15) 0%, transparent 60%),
-      linear-gradient(180deg, #0a0a0f 0%, #13131f 100%);
+    background: linear-gradient(160deg, #0a1628 0%, #0f2847 50%, #162e5a 100%);
     position: relative;
     overflow: hidden;
   }
@@ -36,15 +34,7 @@
     content: "";
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: url("https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=luxury%20watches%20jewelry%20and%20handbags%20displayed%20on%20dark%20marble%20surface%20with%20golden%20ambient%20light%20premium%20elegant%20cinematic&image_size=landscape_16_9") center/cover;
-    opacity: 0.35;
-    filter: blur(1px);
-  }
-  .hero::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: linear-gradient(180deg, rgba(10,10,15,0.4) 0%, rgba(10,10,15,0.85) 100%);
+    background: radial-gradient(ellipse at 50% 30%, rgba(201,168,106,0.18) 0%, transparent 60%);
     pointer-events: none;
   }
   .hero-content { position: relative; z-index: 1; max-width: 720px; }
